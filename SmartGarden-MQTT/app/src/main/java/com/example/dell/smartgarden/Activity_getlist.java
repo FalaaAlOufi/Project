@@ -30,11 +30,15 @@ import java.util.ArrayList;
 import java.util.HashMap;
 
 public class Activity_getlist extends AppCompatActivity {
+
     ListView list_data;
     String jsonResult,mainU;
     SimpleAdapter sAdap;
     JSONObject c;
     int index=0;
+    private Toolbar toolbar;
+
+
     ArrayList<String> List_Name =new ArrayList<String>();
     ArrayList<String> List_Description =new ArrayList<String>();
     ArrayList<String> List_ID =new ArrayList<String>();
@@ -45,14 +49,16 @@ public class Activity_getlist extends AppCompatActivity {
         setContentView(R.layout.activity_list);
         list_data = (ListView) findViewById(R.id.list_of_plants);
 
+        toolbar =  findViewById(R.id.toolbar);
 
-     /*   if (Activity_GlobalVariable.SELECTTYPE.equals("1")){
-            getSupportActionBar().setTitle("Plants");
+       if (Activity_GlobalVariable.SELECTTYPE.equals("1")){
+           toolbar.setTitle("Plants");
+           setSupportActionBar(toolbar);
         }else {
-            getSupportActionBar().setTitle("Vegetables");
+           toolbar.setTitle("Vegetables");
+           setSupportActionBar(toolbar);
         }
-
-*/
+        getSupportActionBar().setDisplayHomeAsUpEnabled(true);
 
         accessWebService();
 
@@ -93,13 +99,11 @@ public class Activity_getlist extends AppCompatActivity {
 
         @Override
         protected void onPostExecute(String result) {
-            getData(); // we will create it later
+            getData();
         }
     }
 
     public void accessWebService() {
-        // InputMethodManager imm = (InputMethodManager) getSystemService(Context.INPUT_METHOD_SERVICE);
-        //   imm.hideSoftInputFromWindow(editTextBarcodeForpromotionChange.getWindowToken(), 0);
         Log.i("Heloo", "4");
 
         if (Activity_GlobalVariable.SELECTTYPE.equals("1")){
@@ -108,11 +112,7 @@ public class Activity_getlist extends AppCompatActivity {
         }else {
             mainU = "http://funapp-programming.com/PlantsDetail/clsSelect.php?f=tblVegitablesSelectAll";
         }
-
-
         Log.i("promotion", mainU);
-
-
         JsonReadTask task = new JsonReadTask();
         task.execute(new String[]{mainU});
     }
@@ -136,14 +136,13 @@ public class Activity_getlist extends AppCompatActivity {
                 map.put("Description", c.getString("Description"));
                 map.put("Type", c.getString("Type"));
                 map.put("index", index + " .");
-                //*********************************************************************
+
                 List_Name.add(c.getString("Name"));
                 List_Description.add(c.getString("Description"));
                 List_ID.add(c.getString("intId"));
                 List_Type.add(c.getString("Type"));
 
                 MyArrList.add(map);
-
 
                 sAdap = new SimpleAdapter(Activity_getlist.this, MyArrList, R.layout.activity_column_data, new String[]{"index","Name"}, new int[]{R.id.tv_index, R.id.tv_name});
 

@@ -1,9 +1,24 @@
 <?xml version="1.0" encoding="utf-8"?>
-<ScrollView xmlns:android="http://schemas.android.com/apk/res/android"
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:app="http://schemas.android.com/apk/res-auto"
     android:layout_width="match_parent"
     android:layout_height="wrap_content"
+    android:orientation="vertical"
     >
+    <android.support.design.widget.AppBarLayout
+        android:id="@+id/appBarLayout"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:theme="@style/ThemeOverlay.AppCompat.Dark.ActionBar">
+
+        <android.support.v7.widget.Toolbar
+            android:id="@+id/toolbar"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:theme="@style/ThemeOverlay.AppCompat.Dark.ActionBar" />
+
+    </android.support.design.widget.AppBarLayout>
+
 <LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
     android:layout_width="fill_parent"
     android:layout_height="fill_parent"
@@ -22,8 +37,8 @@
 
             <ImageView
                 android:id="@+id/imageView2"
-                android:layout_width="212dp"
-                android:layout_height="202dp"
+                android:layout_width="200dp"
+                android:layout_height="150dp"
                 app:srcCompat="@drawable/logo" />
 
             <android.support.design.widget.TextInputLayout
@@ -53,7 +68,6 @@
                     android:layout_height="wrap_content"
                     android:focusableInTouchMode="true"
                     android:hint="Password"
-                    android:imeActionId="@+id/login"
                     android:imeOptions="actionUnspecified"
                     android:inputType="textPassword"
                     android:maxLines="1"
@@ -66,7 +80,7 @@
                 android:id="@+id/sign_in_button"
                 android:layout_width="fill_parent"
                 android:layout_height="wrap_content"
-                android:layout_marginTop="20dip"
+                android:layout_marginTop="5dip"
                 android:background="@color/colorPrimary"
                 android:text="Sign In"
                 android:textColor="@color/white" />
@@ -78,7 +92,7 @@
                 style="?android:textAppearanceSmall"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
-                android:layout_marginTop="16dp"
+                android:layout_marginTop="5dp"
                 android:background="@color/colorPrimary"
                 android:text="Sign Up"
                 android:textColor="@color/white"
@@ -91,7 +105,7 @@
                 style="?android:textAppearanceSmall"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
-                android:layout_marginTop="16dp"
+                android:layout_marginTop="5dp"
                 android:gravity="center"
                 android:padding="10dp"
                 android:text="Forget Password"
@@ -99,4 +113,4 @@
                 android:textStyle="bold" />
         </LinearLayout>
 
-</ScrollView>
+</LinearLayout>

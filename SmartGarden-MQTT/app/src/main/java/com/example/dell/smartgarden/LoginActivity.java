@@ -1,6 +1,5 @@
 package com.example.dell.smartgarden;
 
-
 import android.app.ProgressDialog;
 import android.content.Intent;
 import android.content.SharedPreferences;
@@ -8,6 +7,7 @@ import android.os.Bundle;
 import android.support.annotation.NonNull;
 import android.support.v4.content.ContextCompat;
 import android.support.v7.app.AppCompatActivity;
+import android.support.v7.widget.Toolbar;
 import android.view.View;
 import android.widget.Button;
 import android.widget.EditText;
@@ -23,11 +23,11 @@ import org.eclipse.paho.android.service.MqttAndroidClient;
 
 public class LoginActivity extends AppCompatActivity {
 
+    private Toolbar toolbar;
     private EditText inputEmail, inputPassword;
     private FirebaseAuth auth;
     private Button btnSignUp, btnLogin;
     private ProgressDialog PD;
-    private FirebaseUser user;
     private String uid;
     public Intent intent;
     public MqttAndroidClient client;
@@ -38,6 +38,9 @@ public class LoginActivity extends AppCompatActivity {
         setTheme(R.style.Launcher);
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_login);
+        toolbar =  findViewById(R.id.toolbar);
+        toolbar.setTitle("Sign in");
+        setSupportActionBar(toolbar);
 
         PD = new ProgressDialog(this);
         PD.setMessage("Loading...");
@@ -50,6 +53,7 @@ public class LoginActivity extends AppCompatActivity {
         btnSignUp = (Button) findViewById(R.id.sign_up_button);
         btnLogin = (Button) findViewById(R.id.sign_in_button);
 
+        //login function
         btnLogin.setOnClickListener(new View.OnClickListener() {
             @Override            public void onClick(View view) {
                 final String email = inputEmail.getText().toString();
@@ -97,7 +101,7 @@ public class LoginActivity extends AppCompatActivity {
                 }
             }
         });
-
+        //Sign up function
         btnSignUp.setOnClickListener(new View.OnClickListener() {
             @Override            public void onClick(View view) {
                 intent = new Intent(LoginActivity.this, RegisterActivity.class);
@@ -105,6 +109,7 @@ public class LoginActivity extends AppCompatActivity {
             }
         });
 
+        //Forget password button
         findViewById(R.id.forget_password_button).setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
@@ -114,6 +119,7 @@ public class LoginActivity extends AppCompatActivity {
 
     }
 
+    //After login
     @Override    protected void onResume() {
         if (auth.getCurrentUser() != null) {
 
@@ -130,7 +136,6 @@ public class LoginActivity extends AppCompatActivity {
             startActivity(new Intent(LoginActivity.this, MainActivity.class));
             finish();
         }
-
         super.onResume();
     }
 }

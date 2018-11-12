@@ -33,23 +33,15 @@ public class MqttMessageService extends Service {
     private static final String TAG = "MqttMessageService";
     private PahoMqttClient pahoMqttClient;
     public MqttAndroidClient mqttAndroidClient;
-    final static String MY_ACTION = "MY_ACTION";
-
 
     private FirebaseUser user;
     private String uid;
 
-    SharedPreferences.Editor editor;
-
-    SharedPreferences test_name;
-    //private final Handler handler = new Handler();
-    private Intent intent = null;
     int messageInt;
-String message;
+    String message;
 
     public MqttMessageService() {
     }
-
 
 
     @Override
@@ -57,26 +49,20 @@ String message;
         super.onCreate();
         Log.d(TAG, "onCreate");
 
-
-        //intent = new Intent( MY_ACTION );
-
-
-
     }
 
     @Override
     public int onStartCommand(Intent intent, int flags, int startId) {
         Log.d(TAG, "onStartCommand");
-        //pahoMqttClient.getMqttClient(getApplicationContext(), Constants.MQTT_BROKER_URL, Constants.CLIENT_ID);
         user = FirebaseAuth.getInstance().getCurrentUser();
         uid = user.getUid();
+
         pahoMqttClient = new PahoMqttClient();
         mqttAndroidClient = pahoMqttClient.getMqttClient(getApplicationContext(), Constants.MQTT_BROKER_URL, uid);
 
         mqttAndroidClient.setCallback(new MqttCallbackExtended() {
             @Override
             public void connectComplete(boolean b, String s) {
-
 
             }
 
@@ -91,50 +77,39 @@ String message;
                 messageInt = Integer.valueOf(mqttMessage.toString());
                 switch (s) {
                     case SUBSCRIBE_TOPIC_SOILMOISTURE: {
-                        if ((messageInt-1) < 60) {
-                            setMessageNotification(s, "Seems like your plants are dry! What's about watering them?");
-                            //message = "Seems like your plants are dry! What's about watering them?";
+                        if (messageInt < 20) {
+                            setMessageNotification("Soil Moisture"
+                                    , "Seems like your plants are extremely dry! What's about watering them?");
                             Log.d(TAG, "massege recived");
                         }
                         break;
                     }
 
                     case SUBSCRIBE_TOPIC_TEMPERTURE: {
-                        if ((messageInt-1) > 40) {
-                            setMessageNotification(s, "Tempreture degree is High! What's about turning the fans on? ");
+                        if (messageInt > 30) {
+                            setMessageNotification("Air Temperature",
+                                    "Temperature degree is High! What's about turning the fans on? ");
                             Log.d(TAG, "massege recived");
-
-
                         }
                         break;
                     }
+
                     case SUBSCRIBE_TOPIC_WATER_LEVEL: {
-                        if (messageInt < 30) {
-                            setMessageNotification(s, "Water in the tank is almost finshed!");
+                        if (messageInt < 12) {
+                            setMessageNotification("Water level in the tank",
+                                    "Water in the tank is almost finshed! Refill Please");
                             Log.d(TAG, "massege recived");
-
                         }
                         break;
                     }
-
-
-                    //setMessageNotification(" ", message);
-                    //Log.d(TAG, "massege recived");
 
                 }
-
             }
-
-
-
             @Override
             public void deliveryComplete(IMqttDeliveryToken iMqttDeliveryToken) {
 
             }
         });
-
-
-
         return START_STICKY;
     }
 
@@ -168,18 +143,18 @@ String message;
 
 
     private void setMessageNotification(@NonNull String topic, @NonNull String msg) {
-        Log.d(TAG, "insidd setMessageNotification");
+        Log.d(TAG, "setMessageNotification");
         NotificationManager mNotificationManager =
                 (NotificationManager) getSystemService(Context.NOTIFICATION_SERVICE);
         if (android.os.Build.VERSION.SDK_INT >= android.os.Build.VERSION_CODES.O) {
             NotificationChannel channel = new NotificationChannel("default",
-                    "YOUR_CHANNEL_NAME",
+                    "MQTT Message Notification ",
                     NotificationManager.IMPORTANCE_DEFAULT);
-            channel.setDescription("YOUR_NOTIFICATION_CHANNEL_DISCRIPTION");
+            channel.setDescription("Notification");
             mNotificationManager.createNotificationChannel(channel);
         }
         NotificationCompat.Builder mBuilder = new NotificationCompat.Builder(getApplicationContext(), "default")
-                .setSmallIcon(R.mipmap.ic_launcher) // notification icon
+                .setSmallIcon(R.mipmap.icon) // notification icon
                 .setContentTitle(topic) // title for notification
                 .setContentText(msg)// message for notification
                 // set alarm sound for notification
@@ -192,5 +167,4 @@ String message;
 
 
 }
-
 

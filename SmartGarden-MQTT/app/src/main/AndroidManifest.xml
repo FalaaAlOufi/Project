@@ -23,8 +23,10 @@
                 <category android:name="android.intent.category.LAUNCHER" />
             </intent-filter>
         </activity>
-        <activity android:name=".ForgetAndChangePasswordActivity" />
-        <activity android:name=".RegisterActivity" />
+        <activity android:name=".ForgetAndChangePasswordActivity"
+            />
+        <activity android:name=".RegisterActivity"
+            android:parentActivityName=".LoginActivity" />
         <activity android:name=".MainActivity" />
 
         <service android:name="org.eclipse.paho.android.service.MqttService" />
@@ -33,9 +35,10 @@
             android:enabled="true"
             android:exported="false"
             android:stopWithTask="false" />
-
-        <activity android:name=".Activity_getlist" />
-        <activity android:name=".Activity_Details"></activity>
+        <activity android:name=".Activity_getlist"
+            android:parentActivityName=".MainActivity"/>
+        <activity android:name=".Activity_Details"
+            android:parentActivityName=".Activity_Details"></activity>
     </application>
 
 </manifest>

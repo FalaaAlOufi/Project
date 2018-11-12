@@ -29,15 +29,14 @@ public class ForgetAndChangePasswordActivity extends AppCompatActivity {
     private ProgressDialog PD;
     private TextInputLayout labelMode;
 
-
-
     @Override    protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_forget_and_change_password);
-
         toolbar =  findViewById(R.id.toolbar);
         toolbar.setTitle("Setting");
         setSupportActionBar(toolbar);
+
+        getSupportActionBar().setDisplayHomeAsUpEnabled(true);
 
         PD = new ProgressDialog(this);
         PD.setMessage("Loading...");
@@ -53,7 +52,7 @@ public class ForgetAndChangePasswordActivity extends AppCompatActivity {
 
         final int mode = getIntent().getIntExtra("Mode", 0);
         if (mode == 0) {
-            txtMode.setText("Forget Password");
+            toolbar.setTitle("Forget Password");
             edtMode.setHint("Enter Registered Email");
             labelMode.setHint("Enter Registered Email");
         } else if (mode == 1) {

@@ -26,7 +26,6 @@ public class PlantsFragment extends Fragment {
         return inflater.inflate(R.layout.fragment_plants, null);
 
     }
-//************
 @Override
 public void onViewCreated(View view, @Nullable Bundle savedInstanceState) {
     super.onViewCreated(view, savedInstanceState);
@@ -50,8 +49,5 @@ public void onViewCreated(View view, @Nullable Bundle savedInstanceState) {
         }
     });
 
-
-}
-// ************
-
+   }
 }

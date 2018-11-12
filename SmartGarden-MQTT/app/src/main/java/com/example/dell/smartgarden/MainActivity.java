@@ -11,6 +11,7 @@ import android.support.design.widget.BottomNavigationView;
 import android.support.v4.app.Fragment;
 
 
+import android.support.v4.app.FragmentTransaction;
 import android.support.v4.content.ContextCompat;
 import android.support.v7.app.AppCompatActivity;
 
@@ -40,8 +41,6 @@ public class MainActivity extends AppCompatActivity  implements BottomNavigation
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_main);
-
-
 
         auth = FirebaseAuth.getInstance();
         user = auth.getCurrentUser();
@@ -117,18 +116,37 @@ public class MainActivity extends AppCompatActivity  implements BottomNavigation
     private boolean loadFragment(Fragment fragment) {
         //switching fragment
         if (fragment != null) {
-            getSupportFragmentManager()
-                    .beginTransaction()
-                    .replace(R.id.fragment_container, fragment)
-                    .commit();
+            FragmentTransaction xfrag = getSupportFragmentManager().beginTransaction();
+            xfrag.replace(R.id.fragment_container, fragment).commit();
+            xfrag.addToBackStack("HomeFragment");
+           // int homefrag = transaction.commit();
+             //  getSupportFragmentManager()
+            //        .beginTransaction()
+            //        .replace(R.id.fragment_container, fragment)
+             //       .commit();
+
             return true;
         }
         return false;
     }
 
 
+    public boolean onOptionsItemSelected(MenuItem item){
+        if (item.getItemId() == R.id.tabs) {
+            onBackPressed();
+            return true; }
+        else {
+            return super.onOptionsItemSelected(item); }
+    }
 
-
+    public void onBackPressed(){
+        if (getSupportFragmentManager().getBackStackEntryCount() > 0){
+            getFragmentManager().popBackStack("HomeFragment" , 0);
+        }
+        else {
+            super.onBackPressed();
+        }
+    }
 }
 
 
