@@ -38,7 +38,6 @@ public class Activity_getlist extends AppCompatActivity {
     int index=0;
     private Toolbar toolbar;
 
-
     ArrayList<String> List_Name =new ArrayList<String>();
     ArrayList<String> List_Description =new ArrayList<String>();
     ArrayList<String> List_ID =new ArrayList<String>();
@@ -123,7 +122,6 @@ public class Activity_getlist extends AppCompatActivity {
             JSONArray jsonMainNode = jsonResonse.optJSONArray("member");
 
             final ArrayList<HashMap<String, String>> MyArrList = new ArrayList<HashMap<String, String>>();
-
 
             HashMap<String, String> map;
 

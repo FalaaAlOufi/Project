@@ -24,7 +24,7 @@
             </intent-filter>
         </activity>
         <activity android:name=".ForgetAndChangePasswordActivity"
-            />
+            android:parentActivityName=".LoginActivity" />
         <activity android:name=".RegisterActivity"
             android:parentActivityName=".LoginActivity" />
         <activity android:name=".MainActivity" />
@@ -36,9 +36,9 @@
             android:exported="false"
             android:stopWithTask="false" />
         <activity android:name=".Activity_getlist"
-            android:parentActivityName=".MainActivity"/>
+            android:parentActivityName=".LoginActivity" />
         <activity android:name=".Activity_Details"
-            android:parentActivityName=".Activity_Details"></activity>
+            android:parentActivityName=".Activity_getlist"></activity>
     </application>
 
 </manifest>

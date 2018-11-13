@@ -1,0 +1,8 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <dimen name="fontSizeView">13sp</dimen>
+    <dimen name="imageW">210dp</dimen>
+    <dimen name="imageH">160dp</dimen>
+    <dimen name="maxValue">17sp</dimen>
+    <dimen name="plantSize">15sp</dimen>
+</resources>

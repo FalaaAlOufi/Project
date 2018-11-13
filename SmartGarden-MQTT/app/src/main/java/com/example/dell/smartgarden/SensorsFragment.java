@@ -1,16 +1,19 @@
 package com.example.dell.smartgarden;
 
+import android.app.Dialog;
 import android.content.Context;
 import android.content.SharedPreferences;
 import android.net.Uri;
 import android.os.Bundle;
 import android.os.Handler;
 import android.support.v4.app.Fragment;
+import android.util.DisplayMetrics;
 import android.util.Log;
 import android.view.LayoutInflater;
 import android.view.MotionEvent;
 import android.view.View;
 import android.view.ViewGroup;
+import android.widget.PopupWindow;
 import android.widget.ProgressBar;
 import android.widget.SeekBar;
 import android.widget.TextView;
@@ -40,9 +43,9 @@ public class SensorsFragment extends Fragment{
     public PahoMqttClient pahoMqttClient;
     private SeekBar SeekBarWater;
     private Handler seekBarHandler;
+    private TextView TextViewAirHum, TextViewSoil, TextViewAirTemp,  TextViewLightInt;
 
     private ProgressBar ProgressBarAirHum, ProgressBarAirTemp, ProgressBarLightInt, ProgressBarSoil;
-    private TextView TextViewAirHum, TextViewSoil, TextViewAirTemp,  TextViewLightInt;
     private Handler mHandler ;
 
     int messageInt;
@@ -59,7 +62,7 @@ public class SensorsFragment extends Fragment{
     @Override
     public View onCreateView(LayoutInflater inflater, ViewGroup container, Bundle savedInstanceState) {
 
-        view = inflater.inflate(R.layout.fragment_sensors, container, false);
+        view = inflater.inflate(R.layout.fragment_sensor, container, false);
 
 
         pahoMqttClient = new PahoMqttClient();
@@ -131,8 +134,6 @@ public class SensorsFragment extends Fragment{
 
             @Override
             public void connectionLost(Throwable cause) {
-
-
 
             }
 
@@ -242,14 +243,7 @@ public class SensorsFragment extends Fragment{
             }
         });
 
-
-
-
-
         return view;
-
-
-
 
     }
 }

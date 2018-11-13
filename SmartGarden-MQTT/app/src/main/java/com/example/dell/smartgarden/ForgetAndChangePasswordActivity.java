@@ -33,10 +33,6 @@ public class ForgetAndChangePasswordActivity extends AppCompatActivity {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_forget_and_change_password);
         toolbar =  findViewById(R.id.toolbar);
-        toolbar.setTitle("Setting");
-        setSupportActionBar(toolbar);
-
-        getSupportActionBar().setDisplayHomeAsUpEnabled(true);
 
         PD = new ProgressDialog(this);
         PD.setMessage("Loading...");
@@ -53,17 +49,25 @@ public class ForgetAndChangePasswordActivity extends AppCompatActivity {
         final int mode = getIntent().getIntExtra("Mode", 0);
         if (mode == 0) {
             toolbar.setTitle("Forget Password");
+            setSupportActionBar(toolbar);
+            toolbar.setTitle("Forget Password");
             edtMode.setHint("Enter Registered Email");
             labelMode.setHint("Enter Registered Email");
         } else if (mode == 1) {
+            toolbar.setTitle("Change Password");
+            setSupportActionBar(toolbar);
             txtMode.setText("Change Password");
             edtMode.setHint("Enter New Password");
             labelMode.setHint("Enter New Password");
         } else if (mode == 2) {
+            toolbar.setTitle("Change Email");
+            setSupportActionBar(toolbar);
             txtMode.setText("Change Email");
             edtMode.setHint("Enter New Email");
             labelMode.setHint("Enter New Email");
         } else {
+            toolbar.setTitle("Delete User");
+            setSupportActionBar(toolbar);
             txtMode.setText("Delete User");
             edtMode.setVisibility(View.GONE);
         }
@@ -73,6 +77,8 @@ public class ForgetAndChangePasswordActivity extends AppCompatActivity {
                 callFunction(mode);
             }
         });
+
+        getSupportActionBar().setDisplayHomeAsUpEnabled(true);
 
     }
 

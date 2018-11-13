@@ -130,7 +130,6 @@ public class MainActivity extends AppCompatActivity  implements BottomNavigation
         return false;
     }
 
-
     public boolean onOptionsItemSelected(MenuItem item){
         if (item.getItemId() == R.id.tabs) {
             onBackPressed();
