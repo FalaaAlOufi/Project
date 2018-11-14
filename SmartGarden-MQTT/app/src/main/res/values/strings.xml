@@ -10,13 +10,4 @@
     <string name="title_dashboard">Dashboard</string>
     <string name="title_notifications">Notifications</string>
 
-    <string name="lightd"> Refers to the total amount of light that plants receive. It is also described as the degree of brightness that a plant is exposed to.\n
-        </string>
-    <string name="lightp"> <ul>
-        <li><b><font color="#72a376">  2152 - 5381 LX\n</font> </b>Not appropriate for most plants.\n\n</li>
-    <li><b><font color="#72a376"> 5381 - 10763 LX\n</font></b> This light intensity is appropriate for shade-loving plants.\n\n</li>
-    <li><b><font color="#72a376"> 10763 - 21527 LX\n</font></b> Appropriate for plants that require indirect sunlight.\n\n</li>
-    <li><b> <font color="#72a376">21527 - 43055 LX\n</font></b> It is ideal for many plants that require good and consistent light intensity.\n\n</li>
-    <li><b><font color="#72a376"> 43055 - 53819 LX\n</font></b> Appropriate for plants that require a lot of strong light.\n\n</li>
-</ul></string>
 </resources>
