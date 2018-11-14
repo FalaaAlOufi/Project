@@ -43,21 +43,25 @@ public class SensorsFragment extends Fragment{
     public PahoMqttClient pahoMqttClient;
     private SeekBar SeekBarWater;
     private Handler seekBarHandler;
-    private TextView TextViewAirHum, TextViewSoil, TextViewAirTemp,  TextViewLightInt;
 
     private ProgressBar ProgressBarAirHum, ProgressBarAirTemp, ProgressBarLightInt, ProgressBarSoil;
+    private TextView TextViewAirHum, TextViewSoil, TextViewAirTemp,  TextViewLightInt, LightPop;
     private Handler mHandler ;
 
     int messageInt;
     String value;
 
+    PopupWindow popupwindow;
+
+
+
 
     private FirebaseUser user;
     private String uid;
 
-     SharedPreferences.Editor editor;
+    SharedPreferences.Editor editor;
 
-     SharedPreferences test_name;
+    SharedPreferences test_name;
 
     @Override
     public View onCreateView(LayoutInflater inflater, ViewGroup container, Bundle savedInstanceState) {
@@ -90,9 +94,36 @@ public class SensorsFragment extends Fragment{
 
         SeekBarWater.refreshDrawableState();
 
+        LightPop = view.findViewById(R.id.lightpop);
+
+        LightPop.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view)
+            {
+
+                final Dialog dialog = new Dialog(getActivity());
+                dialog.setContentView(R.layout.light_dialog);
+
+                DisplayMetrics metrics = new DisplayMetrics(); //get metrics of screen
+                getActivity().getWindowManager().getDefaultDisplay().getMetrics(metrics);
+                int height = (int) (metrics.heightPixels*0.7); //set height to 90% of total
+                int width = (int) (metrics.widthPixels*1); //set width to 90% of total
 
 
-         test_name = this.getActivity().getSharedPreferences("NAME", 0);
+
+                dialog.getWindow().setLayout(width, height);
+
+                dialog.show();
+            }
+
+        });
+
+
+
+
+
+
+        test_name = this.getActivity().getSharedPreferences("NAME", 0);
         editor = test_name.edit();
 
         SeekBarWater.setProgress(test_name.getInt("waterProgress",0));
@@ -134,6 +165,8 @@ public class SensorsFragment extends Fragment{
 
             @Override
             public void connectionLost(Throwable cause) {
+
+
 
             }
 

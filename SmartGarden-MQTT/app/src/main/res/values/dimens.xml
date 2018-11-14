@@ -13,5 +13,6 @@
     <dimen name="imageH">150dp</dimen>
     <dimen name="maxValue">16sp</dimen>
     <dimen name="plantSize">14sp</dimen>
+    <dimen name="plantImage">50sp</dimen>
 
 </resources>

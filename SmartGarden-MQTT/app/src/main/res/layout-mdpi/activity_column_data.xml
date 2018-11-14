@@ -10,14 +10,12 @@
         android:weightSum="7"
         android:gravity="center|left"
         >
-        <TextView
+        <ImageView
             android:layout_width="0sp"
             android:layout_height="wrap_content"
             android:layout_weight="1"
-            android:text="1"
-            android:textSize="@dimen/fontSizeView"
-            android:textStyle="bold"
             android:gravity="center"
+            android:background="@mipmap/ic_plant_cul"
             android:id="@+id/tv_index" />
         <TextView
             android:layout_width="0sp"

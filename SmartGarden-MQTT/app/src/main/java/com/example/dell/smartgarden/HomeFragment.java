@@ -72,8 +72,8 @@ class TabAdapter extends FragmentPagerAdapter {
     private final List<Fragment> mFragmentList = new ArrayList<>();
     private final List<String> mFragmentTitleList = new ArrayList<>();
     private int[] tabIcons = {
-            R.drawable.ic_sensor_name,
-            R.drawable.ic_action_name
+            R.drawable.ic_action_sensors,
+            R.drawable.ic_action_actr
     };
 
 

@@ -165,4 +165,3 @@ public class Activity_getlist extends AppCompatActivity {
         }
     }
 }
-

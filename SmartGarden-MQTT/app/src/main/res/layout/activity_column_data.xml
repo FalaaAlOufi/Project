@@ -15,7 +15,7 @@
             android:layout_height="wrap_content"
             android:layout_weight="1"
             android:gravity="center"
-            android:background="@drawable/ic_plant_name"
+            android:background="@mipmap/ic_plant_cul"
             android:id="@+id/tv_index" />
         <TextView
             android:layout_width="0sp"
