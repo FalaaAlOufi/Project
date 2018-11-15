@@ -16,8 +16,8 @@
 
         <ImageView
             android:id="@+id/imageView3"
-            android:layout_width="72dp"
-            android:layout_height="75dp"
+            android:layout_width="@dimen/plantImage"
+            android:layout_height="@dimen/plantImage"
             android:layout_gravity="center"
             android:layout_margin="10dp"
             android:background="@drawable/ic_action_sensors"
@@ -32,7 +32,7 @@
             android:layout_marginTop="6dp"
             android:text="Soil Moisture"
             android:textColor="#0e8360"
-            android:textSize="18sp"
+            android:textSize="@dimen/titleSizeView"
             android:textStyle="bold"
             android:layout_gravity="center"
 
@@ -54,7 +54,7 @@
             android:layout_marginTop="12dp"
             android:layout_marginBottom="12dp"
             android:textStyle="bold"
-            android:textSize="18sp"
+            android:textSize="@dimen/titleSizeView"
             app:layout_constraintEnd_toEndOf="parent"
             app:layout_constraintStart_toStartOf="parent"
             tools:layout_editor_absoluteY="134dp" />
@@ -70,7 +70,7 @@
             android:fontFamily="sans-serif"
             android:scrollbars="vertical"
             android:text="@string/soilp"
-            android:textSize="17sp"
+            android:textSize="@dimen/fontSizeView"
             android:layout_marginBottom="12dp"
 
             app:layout_constraintEnd_toEndOf="parent"
