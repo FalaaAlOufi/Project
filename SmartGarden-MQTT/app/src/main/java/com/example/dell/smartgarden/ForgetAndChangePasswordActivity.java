@@ -156,7 +156,5 @@ public class ForgetAndChangePasswordActivity extends AppCompatActivity {
                         });
             }
         }
-
     }
-
 }
