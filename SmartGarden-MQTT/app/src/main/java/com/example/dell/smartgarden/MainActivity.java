@@ -54,9 +54,6 @@ public class MainActivity extends AppCompatActivity  implements BottomNavigation
             startActivity(new Intent(MainActivity.this, LoginActivity.class));
             //  finish();
         }
-        //Intent intent = new Intent(MainActivity.this, MqttMessageService.class);
-        //ContextCompat.startForegroundService(MainActivity.this, intent  );
-        //startService(intent);
 
         toolbar =  findViewById(R.id.toolbar);
         loadFragment(new HomeFragment());
@@ -72,23 +69,11 @@ public class MainActivity extends AppCompatActivity  implements BottomNavigation
     protected void onStart() {
         super.onStart();
 
-/*
-        pahoMqttClient = new PahoMqttClient();
-        client = pahoMqttClient.getMqttClient(getApplicationContext(), Constants.MQTT_BROKER_URL, Constants.CLIENT_ID);
-        client.setTraceEnabled(true);
-
-
-
-        Intent intent = new Intent(MainActivity.this, MqttMessageService.class);
-        ContextCompat.startForegroundService(MainActivity.this, intent  );
-        startService(intent);
-*/
-
     }
 
 
 
-        @Override
+    @Override
     public boolean onNavigationItemSelected(@NonNull MenuItem item) {
         Fragment fragment = null;
 
@@ -119,11 +104,11 @@ public class MainActivity extends AppCompatActivity  implements BottomNavigation
             FragmentTransaction xfrag = getSupportFragmentManager().beginTransaction();
             xfrag.replace(R.id.fragment_container, fragment).commit();
             xfrag.addToBackStack("HomeFragment");
-           // int homefrag = transaction.commit();
-             //  getSupportFragmentManager()
+            // int homefrag = transaction.commit();
+            //  getSupportFragmentManager()
             //        .beginTransaction()
             //        .replace(R.id.fragment_container, fragment)
-             //       .commit();
+            //       .commit();
 
             return true;
         }
@@ -147,7 +132,3 @@ public class MainActivity extends AppCompatActivity  implements BottomNavigation
         }
     }
 }
-
-
-
-

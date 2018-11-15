@@ -49,8 +49,8 @@ public class SettingFragment extends Fragment {
                     Intent intent = new Intent(getActivity(), LoginActivity.class);
                     startActivity(intent);
 
-                  Intent intent2 = new Intent(getActivity(), MqttMessageService.class);
-                   getActivity().stopService(intent2);
+                    Intent intent2 = new Intent(getActivity(), MqttMessageService.class);
+                    getActivity().stopService(intent2);
 
 
                     MqttMessageService m = new MqttMessageService();

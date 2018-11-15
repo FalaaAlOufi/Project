@@ -9,9 +9,10 @@
     <dimen name="custom_tab_layout_height">68dp</dimen>
 
     <dimen name="fontSizeView">12sp</dimen>
+    <dimen name="titleSizeView">14sp</dimen>
     <dimen name="imageW">200dp</dimen>
     <dimen name="imageH">150dp</dimen>
-    <dimen name="maxValue">16sp</dimen>
+    <dimen name="maxValue">24sp</dimen>
     <dimen name="plantSize">14sp</dimen>
     <dimen name="plantImage">50sp</dimen>
 

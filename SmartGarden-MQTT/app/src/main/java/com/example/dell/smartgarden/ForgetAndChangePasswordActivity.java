@@ -146,8 +146,8 @@ public class ForgetAndChangePasswordActivity extends AppCompatActivity {
                             @Override                            public void onComplete(@NonNull Task<Void> task) {
                                 if (task.isSuccessful()) {
                                     Toast.makeText(ForgetAndChangePasswordActivity.this, "Your profile is deleted: Create a account now!", Toast.LENGTH_LONG).show();
-                                       Intent intent = new Intent(ForgetAndChangePasswordActivity.this, LoginActivity.class);
-                                       startActivity(intent);
+                                    Intent intent = new Intent(ForgetAndChangePasswordActivity.this, LoginActivity.class);
+                                    startActivity(intent);
                                 } else {
                                     Toast.makeText(ForgetAndChangePasswordActivity.this, "Failed to delete your account!", Toast.LENGTH_LONG).show();
                                 }

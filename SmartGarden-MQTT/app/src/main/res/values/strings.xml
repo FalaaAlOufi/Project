@@ -10,4 +10,36 @@
     <string name="title_dashboard">Dashboard</string>
     <string name="title_notifications">Notifications</string>
 
+    <string name="lightd"> Refers to the total amount of light that plants receive. It is also described as the degree of brightness that a plant is exposed to.\n
+        </string>
+    <string name="lightp"> <ul>
+        <li><b><font color="#72a376">  2152 - 5381 LX\n</font> </b>Not appropriate for most plants.\n\n</li>
+    <li><b><font color="#72a376"> 5381 - 10763 LX\n</font></b> This light intensity is appropriate for shade-loving plants.\n\n</li>
+    <li><b><font color="#72a376"> 10763 - 21527 LX\n</font></b> Appropriate for plants that require indirect sunlight.\n\n</li>
+    <li><b> <font color="#72a376">21527 - 43055 LX\n</font></b> It is ideal for many plants that require good and consistent light intensity.\n\n</li>
+    <li><b><font color="#72a376"> 43055 - 53819 LX\n</font></b> Appropriate for plants that require a lot of strong light.\n\n</li>
+</ul></string>
+
+    <string name="soild"> Soil moisture and its availability to support plant growth is a primary factor in farm productivity. Too little moisture can result in yield loss and plant death. Too much causes root disease and wasted water.\n\n
+        <font color="#0e8360">Soil Types and Watering Information:</font>
+        </string>
+    <string name="soilp"> <ul>
+        <li><b><font color="#72a376"> Loam Soil:\n</font> </b> Very porous and retains moisture well. This is the optimal soil type and can be watered normally.\n\n</li>
+    <li><b><font color="#72a376"> Sandy Soil:\n</font></b> Extremely porous and drains quickly. Water slowly to saturate soil root zones.\n\n</li>
+    <li><b><font color="#72a376"> Clay Soil:\n</font></b> Holds more water, but is slow to absorb and release. Do not water faster than the soil can absorb it.\n\n</li>
+
+</ul>
+        <font color="#0e8360"><b>Recommended Soil Moisture Levels\n\n</b></font>
+        <ul>
+        <li><b><font color="#72a376"> 0 - 20 % Wet\n</font> </b> Tolerates Extremely Dry Soil.\n\n</li>
+    <li><b><font color="#72a376"> 21 - 40 % Wet\n</font></b> Tolerates Dry/Well Drained Soil.\n\n</li>
+    <li><b><font color="#72a376"> 41 - 60 % Wet\n</font></b> Tolerates Moist Soil.\n\n</li>
+            <li><b><font color="#72a376"> 61 - 80 % Wet\n</font></b> Tolerates Wet Soil.\n\n</li>
+
+</ul>
+
+
+    </string>
+
+
 </resources>
