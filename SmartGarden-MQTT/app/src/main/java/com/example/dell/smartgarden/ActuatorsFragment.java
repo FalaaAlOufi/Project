@@ -17,10 +17,17 @@ import com.google.firebase.auth.FirebaseAuth;
 import com.google.firebase.auth.FirebaseUser;
 
 import org.eclipse.paho.android.service.MqttAndroidClient;
+import org.eclipse.paho.client.mqttv3.IMqttDeliveryToken;
+import org.eclipse.paho.client.mqttv3.MqttCallback;
 import org.eclipse.paho.client.mqttv3.MqttException;
+import org.eclipse.paho.client.mqttv3.MqttMessage;
 
 import java.io.UnsupportedEncodingException;
 
+import static com.example.dell.smartgarden.Constants.PUBLISH_TOPIC_LEFT_FAN;
+import static com.example.dell.smartgarden.Constants.PUBLISH_TOPIC_LIGHT;
+import static com.example.dell.smartgarden.Constants.PUBLISH_TOPIC_PUMP;
+import static com.example.dell.smartgarden.Constants.PUBLISH_TOPIC_RIGHT_FAN;
 import static com.example.dell.smartgarden.Constants.QOS;
 
 public class ActuatorsFragment extends Fragment {
@@ -67,6 +74,53 @@ public class ActuatorsFragment extends Fragment {
 
         client.setTraceEnabled(true);
 
+
+
+        pahoMqttClient.mqttAndroidClient.setCallback(new MqttCallback() {
+
+
+            @Override
+            public void connectionLost(Throwable cause) {
+
+
+
+            }
+            String m;
+            @Override
+            public void messageArrived(String topic, MqttMessage message) {
+                Log.d(TAG, "massege recived");
+
+                m=message.toString();
+
+                if (topic.equals(PUBLISH_TOPIC_LEFT_FAN) ||  topic.equals(PUBLISH_TOPIC_RIGHT_FAN) || topic.equals(PUBLISH_TOPIC_PUMP) || topic.equals(PUBLISH_TOPIC_LIGHT) ){
+                    if(m.length()>1){
+                        Toast.makeText(getActivity().getApplicationContext(),
+                                m, Toast.LENGTH_LONG).show();
+                        Log.d(TAG, "massege recived");
+
+                    }
+
+                }
+
+
+
+
+
+            }
+
+            @Override
+            public void deliveryComplete(IMqttDeliveryToken token) {
+
+            }
+        });
+
+
+
+
+
+
+
+
       //  m = new LoginActivity();
         WaterSwitch.setOnCheckedChangeListener(new CompoundButton.OnCheckedChangeListener() {
             @Override
@@ -77,13 +131,7 @@ public class ActuatorsFragment extends Fragment {
 
                     try {
                         pahoMqttClient.publishMessage(client, "1", QOS, Constants.PUBLISH_TOPIC_PUMP);
-                        if(client.isConnected()){
-                            Toast.makeText(getActivity().getApplicationContext(),
-                                    "Water Pump is turned ON", Toast.LENGTH_LONG).show();
-                            Log.d(TAG, "massege published");
-
-                        }
-                        else{
+                        if(!client.isConnected()){
                             Toast.makeText(getActivity().getApplicationContext(),
                                     "Water Pump will turned ON after the connection", Toast.LENGTH_LONG).show();
                             Log.d(TAG, "massege published");
@@ -109,16 +157,10 @@ public class ActuatorsFragment extends Fragment {
                     try {
                         pahoMqttClient.publishMessage(client, "0", QOS, Constants.PUBLISH_TOPIC_PUMP);
 
-                        if(client.isConnected()){
-                            Toast.makeText(getActivity().getApplicationContext(),
-                                    "Water Pump is turned OFF", Toast.LENGTH_LONG).show();
-                            Log.d(TAG, "massege published");
-                        }
-                        else{
+                        if(!client.isConnected()){
                             Toast.makeText(getActivity().getApplicationContext(),
                                     "Water Pump will turned OFF after the connection", Toast.LENGTH_LONG).show();
                             Log.d(TAG, "massege not published");
-
                         }
 
 
@@ -151,14 +193,8 @@ public class ActuatorsFragment extends Fragment {
                 if(isChecked){
 
                     try {
-                        pahoMqttClient.publishMessage(client, "1", QOS, Constants.PUBLISH_TOPIC_LIGHT);
-                        if(client.isConnected()){
-                            Toast.makeText(getActivity().getApplicationContext(),
-                                    "Light is turned ON", Toast.LENGTH_LONG).show();
-                            Log.d(TAG, "massege published");
-
-                        }
-                        else{
+                        pahoMqttClient.publishMessage(client, "1", QOS, PUBLISH_TOPIC_LIGHT);
+                        if(!client.isConnected()) {
                             Toast.makeText(getActivity().getApplicationContext(),
                                     "Light will turned ON after the connection", Toast.LENGTH_LONG).show();
                             Log.d(TAG, "massege not published");
@@ -182,19 +218,14 @@ public class ActuatorsFragment extends Fragment {
                 else {
 
                     try {
-                        pahoMqttClient.publishMessage(client, "0", QOS, Constants.PUBLISH_TOPIC_LIGHT);
-                        if(client.isConnected()){
-                            Toast.makeText(getActivity().getApplicationContext(),
-                                    "Light is turned OFF", Toast.LENGTH_LONG).show();
-                            Log.d(TAG, "massege published");
-
-                        }
-                        else{
+                        pahoMqttClient.publishMessage(client, "0", QOS, PUBLISH_TOPIC_LIGHT);
+                        if(!client.isConnected()){
                             Toast.makeText(getActivity().getApplicationContext(),
                                     "Light will turned OFF after the connection", Toast.LENGTH_LONG).show();
                             Log.d(TAG, "massege not published");
 
                         }
+
 
                     } catch (MqttException e) {
                         e.printStackTrace();
@@ -224,14 +255,8 @@ public class ActuatorsFragment extends Fragment {
                 if(isChecked){
 
                     try {
-                        pahoMqttClient.publishMessage(client, "1", QOS, Constants.PUBLISH_TOPIC_LEFT_FAN);
-                        if(client.isConnected()){
-                            Toast.makeText(getActivity().getApplicationContext(),
-                                    "Left Fan is turned ON", Toast.LENGTH_LONG).show();
-                            Log.d(TAG, "massege published");
-
-                        }
-                        else{
+                        pahoMqttClient.publishMessage(client, "1", QOS, PUBLISH_TOPIC_LEFT_FAN);
+                        if(!client.isConnected()){
                             Toast.makeText(getActivity().getApplicationContext(),
                                     "Left Fan will turned ON after the connection", Toast.LENGTH_LONG).show();
                             Log.d(TAG, "massege not published");
@@ -255,19 +280,14 @@ public class ActuatorsFragment extends Fragment {
                 else {
 
                     try {
-                        pahoMqttClient.publishMessage(client, "0", QOS, Constants.PUBLISH_TOPIC_LEFT_FAN);
-                        if(client.isConnected()){
-                            Toast.makeText(getActivity().getApplicationContext(),
-                                    "Left Fan is turend OFF", Toast.LENGTH_LONG).show();
-                            Log.d(TAG, "massege published");
-
-                        }
-                        else{
+                        pahoMqttClient.publishMessage(client, "0", QOS, PUBLISH_TOPIC_LEFT_FAN);
+                        if(!client.isConnected()){
                             Toast.makeText(getActivity().getApplicationContext(),
                                     "Left Fan will turned OFF after the connection", Toast.LENGTH_LONG).show();
                             Log.d(TAG, "massege not published");
 
                         }
+
 
                     } catch (MqttException e) {
                         e.printStackTrace();
@@ -298,19 +318,14 @@ public class ActuatorsFragment extends Fragment {
                 if(isChecked){
 
                     try {
-                        pahoMqttClient.publishMessage(client, "1", QOS, Constants.PUBLISH_TOPIC_RIGHT_FAN);
-                        if(client.isConnected()){
-                            Toast.makeText(getActivity().getApplicationContext(),
-                                    "Right Fan is turned ON", Toast.LENGTH_LONG).show();
-                            Log.d(TAG, "massege published");
-
-                        }
-                        else{
+                        pahoMqttClient.publishMessage(client, "1", QOS, PUBLISH_TOPIC_RIGHT_FAN);
+                        if(!client.isConnected()){
                             Toast.makeText(getActivity().getApplicationContext(),
                                     "Right Fan will turned ON after the connection", Toast.LENGTH_LONG).show();
                             Log.d(TAG, "massege not published");
 
                         }
+
 
 
                     } catch (MqttException e) {
@@ -329,19 +344,14 @@ public class ActuatorsFragment extends Fragment {
                 else {
 
                     try {
-                        pahoMqttClient.publishMessage(client, "0", QOS, Constants.PUBLISH_TOPIC_RIGHT_FAN);
-                        if(client.isConnected()){
-                            Toast.makeText(getActivity().getApplicationContext(),
-                                    "Right Fan is turend OFF", Toast.LENGTH_LONG).show();
-                            Log.d(TAG, "massege published");
-
-                        }
-                        else{
+                        pahoMqttClient.publishMessage(client, "0", QOS, PUBLISH_TOPIC_RIGHT_FAN);
+                        if(!client.isConnected()){
                             Toast.makeText(getActivity().getApplicationContext(),
                                     "Right Fan will turned OFF after the connection", Toast.LENGTH_LONG).show();
                             Log.d(TAG, "massege not published");
 
                         }
+
 
                     } catch (MqttException e) {
                         e.printStackTrace();

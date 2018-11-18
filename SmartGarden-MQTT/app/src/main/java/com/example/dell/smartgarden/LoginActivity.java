@@ -79,13 +79,15 @@ public class LoginActivity extends AppCompatActivity {
                                             client = pahoMqttClient.getMqttClient(getApplicationContext(), Constants.MQTT_BROKER_URL, uid);
                                             client.setTraceEnabled(true);
 
-                                            Intent intent2 = new Intent(LoginActivity.this, MqttMessageService.class);
-                                            ContextCompat.startForegroundService(LoginActivity.this, intent2  );
-                                            startService(intent2);
+
 
                                             Intent intent = new Intent(LoginActivity.this, MainActivity.class);
                                             startActivity(intent);
                                             finish();
+
+                                            Intent intent2 = new Intent(LoginActivity.this, MqttMessageService.class);
+                                            ContextCompat.startForegroundService(LoginActivity.this, intent2  );
+                                            startService(intent2);
                                         }
                                         PD.dismiss();
                                     }

@@ -91,14 +91,6 @@
             android:textSize="@dimen/fontSizeView"
             android:textStyle="bold" />
 
-        <Button
-            android:id="@+id/sign_in_button"
-            android:layout_width="fill_parent"
-            android:layout_height="wrap_content"
-            android:layout_marginTop="5dp"
-            android:background="@color/colorPrimary"
-            android:text="Sign In"
-            android:textColor="@color/white"
-            android:textSize="@dimen/fontSizeView"/>
+
     </LinearLayout>
 </LinearLayout>

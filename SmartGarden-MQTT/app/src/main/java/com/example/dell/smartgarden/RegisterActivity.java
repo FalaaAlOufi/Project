@@ -25,7 +25,7 @@ public class RegisterActivity extends AppCompatActivity {
     private Toolbar toolbar;
     private EditText inputEmail, inputPassword;
     private FirebaseAuth auth;
-    private Button btnSignUp, btnLogin;
+    private Button btnSignUp;
     private ProgressDialog PD;
     private String uid;
 
@@ -55,7 +55,7 @@ public class RegisterActivity extends AppCompatActivity {
         inputEmail = (EditText) findViewById(R.id.email);
         inputPassword = (EditText) findViewById(R.id.password);
         btnSignUp = (Button) findViewById(R.id.sign_up_button);
-        btnLogin = (Button) findViewById(R.id.sign_in_button);
+
 
         //Register
         btnSignUp.setOnClickListener(new View.OnClickListener() {
@@ -105,10 +105,6 @@ public class RegisterActivity extends AppCompatActivity {
             }
         });
 
-        btnLogin.setOnClickListener(new View.OnClickListener() {
-            @Override            public void onClick(View view) {
-                finish();
-            }
-        });
+
     }
 }

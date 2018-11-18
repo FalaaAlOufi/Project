@@ -16,13 +16,11 @@
 
         <ImageView
             android:id="@+id/imageView3"
-
             android:layout_width="@dimen/plantImage"
             android:layout_height="@dimen/plantImage"
             android:layout_gravity="center"
             android:layout_margin="10dp"
-            android:background="@drawable/ic_action_actr"
-
+            android:background="@drawable/ic_temp"
             app:layout_constraintTop_toTopOf="parent"
             tools:layout_editor_absoluteX="166dp" />
 
@@ -32,11 +30,9 @@
             android:layout_height="wrap_content"
             android:layout_marginBottom="8dp"
             android:layout_marginTop="6dp"
-            android:text="Light intensity"
+            android:text="Air Temperature"
             android:textColor="#0e8360"
-
             android:textSize="@dimen/titleSizeView"
-
             android:textStyle="bold"
             android:layout_gravity="center"
 
@@ -54,13 +50,11 @@
             android:ems="10"
             android:fontFamily="sans-serif"
             android:scrollbars="vertical"
-            android:text="@string/lightd"
+            android:text="@string/aird"
             android:layout_marginTop="12dp"
             android:layout_marginBottom="12dp"
             android:textStyle="bold"
-
             android:textSize="@dimen/titleSizeView"
-
             app:layout_constraintEnd_toEndOf="parent"
             app:layout_constraintStart_toStartOf="parent"
             tools:layout_editor_absoluteY="134dp" />
@@ -75,11 +69,9 @@
             android:ems="10"
             android:fontFamily="sans-serif"
             android:scrollbars="vertical"
-            android:text="@string/lightp"
-
+            android:text="@string/airp"
             android:textSize="@dimen/fontSizeView"
             android:layout_marginBottom="12dp"
-
             app:layout_constraintEnd_toEndOf="parent"
             app:layout_constraintStart_toStartOf="parent"
             tools:layout_editor_absoluteY="134dp" />

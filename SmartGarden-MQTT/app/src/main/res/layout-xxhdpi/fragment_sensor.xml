@@ -2,8 +2,7 @@
     xmlns:app="http://schemas.android.com/apk/res-auto"
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
-    android:layout_height="wrap_content"
-    >
+    android:layout_height="match_parent">
 
     <android.support.constraint.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
         xmlns:app="http://schemas.android.com/apk/res-auto"
@@ -12,19 +11,17 @@
         android:layout_height="match_parent"
         android:layout_margin="5dp"
         android:paddingBottom="62dp"
-        android:paddingTop="50dp">
+        android:paddingTop="10dp">
 
         <android.support.v7.widget.CardView
             android:id="@+id/card_view1"
-            android:layout_width="135dp"
-            android:layout_height="135dp"
+            android:layout_width="140dp"
+            android:layout_height="140dp"
             android:layout_alignLeft="@+id/card_view2"
             android:layout_alignParentBottom="true"
             android:layout_alignStart="@+id/card_view2"
             android:layout_marginBottom="12dp"
             android:layout_marginEnd="4dp"
-            android:layout_marginLeft="4dp"
-            android:layout_marginRight="4dp"
             android:layout_marginStart="4dp"
             android:layout_marginTop="12dp"
             app:cardBackgroundColor="#E9ECDE"
@@ -39,7 +36,10 @@
                 android:layout_height="match_parent">
 
                 <TextView
-                    android:id="@+id/info_text1"
+
+                    android:id="@+id/tempdialog"
+
+
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
                     android:layout_marginBottom="8dp"
@@ -55,9 +55,8 @@
                     style="?android:attr/progressBarStyleHorizontal"
                     android:layout_width="match_parent"
                     android:layout_height="121dp"
+                    android:layout_alignParentBottom="true"
                     android:layout_alignParentStart="true"
-                    android:layout_alignParentTop="true"
-                    android:layout_marginTop="24dp"
                     android:indeterminate="false"
                     android:max="100"
                     android:progressDrawable="@drawable/circular_progress"
@@ -70,9 +69,9 @@
                     android:layout_height="wrap_content"
                     android:layout_alignParentBottom="true"
                     android:layout_centerHorizontal="true"
-                    android:layout_marginBottom="43dp"
+                    android:layout_marginBottom="41dp"
                     android:textColor="#000000"
-                    android:textSize="@dimen/maxValue"
+                    android:textSize="28sp"
                     tools:layout_editor_absoluteX="44dp"
                     tools:layout_editor_absoluteY="82dp" />
             </RelativeLayout>
@@ -81,13 +80,11 @@
 
         <android.support.v7.widget.CardView
             android:id="@+id/card_view2"
-            android:layout_width="135dp"
-            android:layout_height="135dp"
+            android:layout_width="140dp"
+            android:layout_height="140dp"
             android:layout_alignParentStart="true"
             android:layout_marginBottom="4dp"
             android:layout_marginEnd="4dp"
-            android:layout_marginLeft="4dp"
-            android:layout_marginRight="4dp"
             android:layout_marginStart="4dp"
             android:layout_marginTop="4dp"
             app:cardBackgroundColor="#E9ECDE"
@@ -107,9 +104,9 @@
                     android:layout_height="wrap_content"
                     android:layout_alignParentBottom="true"
                     android:layout_centerHorizontal="true"
-                    android:layout_marginBottom="45dp"
+                    android:layout_marginBottom="39dp"
                     android:textColor="#000000"
-                    android:textSize="@dimen/fontSizeView"
+                    android:textSize="28sp"
                     android:visibility="visible"
                     tools:layout_editor_absoluteX="44dp"
                     tools:layout_editor_absoluteY="82dp" />
@@ -118,7 +115,7 @@
                     android:id="@+id/progressBarLightInt"
                     style="?android:attr/progressBarStyleHorizontal"
                     android:layout_width="match_parent"
-                    android:layout_height="112dp"
+                    android:layout_height="121dp"
                     android:layout_alignParentBottom="true"
                     android:layout_alignParentStart="true"
                     android:indeterminate="false"
@@ -132,8 +129,8 @@
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
                     android:layout_margin="8dp"
-                    android:layout_marginStart="8dp"
                     android:layout_marginEnd="8dp"
+                    android:layout_marginStart="8dp"
                     android:fontFamily="@font/montserrat"
                     android:text="Light Intensity:"
                     android:textColor="#000"
@@ -146,14 +143,12 @@
 
         <android.support.v7.widget.CardView
             android:id="@+id/card_view3"
-            android:layout_width="135dp"
-            android:layout_height="135dp"
+            android:layout_width="140dp"
+            android:layout_height="140dp"
             android:layout_alignParentEnd="true"
             android:layout_alignParentTop="true"
             android:layout_marginBottom="4dp"
             android:layout_marginEnd="4dp"
-            android:layout_marginLeft="4dp"
-            android:layout_marginRight="4dp"
             android:layout_marginStart="4dp"
             android:layout_marginTop="4dp"
             app:cardBackgroundColor="#E9ECDE"
@@ -182,7 +177,7 @@
                     android:id="@+id/progressBarSoil"
                     style="?android:attr/progressBarStyleHorizontal"
                     android:layout_width="match_parent"
-                    android:layout_height="113dp"
+                    android:layout_height="121dp"
                     android:layout_alignParentBottom="true"
                     android:layout_alignParentStart="true"
                     android:indeterminate="false"
@@ -197,9 +192,9 @@
                     android:layout_height="wrap_content"
                     android:layout_alignParentBottom="true"
                     android:layout_centerHorizontal="true"
-                    android:layout_marginBottom="43dp"
+                    android:layout_marginBottom="42dp"
                     android:textColor="#000000"
-                    android:textSize="@dimen/maxValue"
+                    android:textSize="28sp"
                     tools:layout_editor_absoluteX="44dp"
                     tools:layout_editor_absoluteY="82dp" />
             </RelativeLayout>
@@ -208,14 +203,12 @@
 
         <android.support.v7.widget.CardView
             android:id="@+id/card_view4"
-            android:layout_width="135dp"
-            android:layout_height="135dp"
+            android:layout_width="140dp"
+            android:layout_height="140dp"
             android:layout_alignParentBottom="true"
             android:layout_alignStart="@+id/card_view2"
             android:layout_marginBottom="12dp"
             android:layout_marginEnd="4dp"
-            android:layout_marginLeft="4dp"
-            android:layout_marginRight="4dp"
             android:layout_marginStart="4dp"
             android:layout_marginTop="12dp"
             app:cardBackgroundColor="#E9ECDE"
@@ -230,7 +223,9 @@
                 android:layout_height="match_parent">
 
                 <TextView
-                    android:id="@+id/info_text4"
+
+                    android:id="@+id/humiditydialog"
+
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
                     android:layout_margin="8dp"
@@ -244,7 +239,7 @@
                     android:id="@+id/progressBarAirHum"
                     style="?android:attr/progressBarStyleHorizontal"
                     android:layout_width="match_parent"
-                    android:layout_height="114dp"
+                    android:layout_height="121dp"
                     android:layout_alignParentBottom="true"
                     android:layout_alignParentStart="true"
                     android:indeterminate="false"
@@ -259,9 +254,9 @@
                     android:layout_height="wrap_content"
                     android:layout_alignParentBottom="true"
                     android:layout_centerHorizontal="true"
-                    android:layout_marginBottom="42dp"
+                    android:layout_marginBottom="39dp"
                     android:textColor="#000000"
-                    android:textSize="@dimen/maxValue"
+                    android:textSize="28sp"
                     tools:layout_editor_absoluteX="44dp"
                     tools:layout_editor_absoluteY="82dp" />
 
@@ -272,11 +267,9 @@
             android:id="@+id/cardView"
             android:layout_width="wrap_content"
             android:layout_height="82dp"
-            android:layout_marginBottom="8dp"
+            android:layout_marginBottom="4dp"
             android:layout_marginEnd="8dp"
-            android:layout_marginLeft="8dp"
-            android:layout_marginRight="8dp"
-            android:layout_marginStart="8dp"
+            android:layout_marginStart="12dp"
             android:paddingBottom="8dp"
             app:layout_constraintBottom_toBottomOf="parent"
             app:layout_constraintEnd_toEndOf="parent"
@@ -326,8 +319,9 @@
                     android:id="@+id/maxValue"
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
-                    android:layout_alignParentEnd="true"
                     android:layout_alignParentBottom="true"
+                    android:layout_alignParentEnd="true"
+                    android:layout_marginRight="5dp"
                     android:gravity="center"
                     android:text="100"
                     android:textSize="@dimen/fontSizeView" />

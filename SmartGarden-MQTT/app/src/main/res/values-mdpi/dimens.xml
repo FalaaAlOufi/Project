@@ -1,11 +1,13 @@
 <?xml version="1.0" encoding="utf-8"?>
 <resources>
-    <dimen name="fontSizeView">14sp</dimen>
-    <dimen name="titleSizeView">16sp</dimen>
-    <dimen name="imageW">230dp</dimen>
-    <dimen name="imageH">180dp</dimen>
-    <dimen name="maxValue">26sp</dimen>
-    <dimen name="plantSize">16sp</dimen>
-    <dimen name="plantImage">70sp</dimen>
+    <dimen name="fontSizeView">22sp</dimen>
+
+    <dimen name="titleSizeView">22sp</dimen>
+    <dimen name="imageW">260dp</dimen>
+    <dimen name="imageH">210dp</dimen>
+    <dimen name="maxValue">28sp</dimen>
+
+    <dimen name="plantSize">18sp</dimen>
+    <dimen name="plantImage">80sp</dimen>
 
 </resources>

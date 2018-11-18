@@ -27,9 +27,14 @@ public class SettingFragment extends Fragment {
     FirebaseAuth auth;
     FirebaseUser user;
     ProgressDialog PD;
-    PahoMqttClient pahoMqttClient;
+
 
     private static final String TAG = "EmailPassword";
+
+
+    PahoMqttClient pahoMqttClient;
+   // public MqttAndroidClient client;
+
 
     @Override
     public View onCreateView(LayoutInflater inflater, ViewGroup container, Bundle savedInstanceState) {
@@ -49,22 +54,39 @@ public class SettingFragment extends Fragment {
                     Intent intent = new Intent(getActivity(), LoginActivity.class);
                     startActivity(intent);
 
+
                     Intent intent2 = new Intent(getActivity(), MqttMessageService.class);
                     getActivity().stopService(intent2);
 
 
                     MqttMessageService m = new MqttMessageService();
+                    //m.client.disconnect();
+
                     if (m.mqttAndroidClient != null) {
                         m.mqttAndroidClient.unregisterResources();
                         m.mqttAndroidClient.close();
                         m.mqttAndroidClient = null;
                     }
 
+                    //getActivity().stopService(m.intent2);
+                   // pahoMqttClient = new PahoMqttClient();
+                    //client = pahoMqttClient.getMqttClient(getActivity().getApplicationContext(), Constants.MQTT_BROKER_URL, Constants.CLIENT_ID);
+                    //pahoMqttClient.mqttAndroidClient.disconnect();
+
+                   // client.disconnect();
+                   // m.client.close();
+
                 } catch (Exception e) {
                     Log.e(TAG, "onClick: Exception " + e.getMessage(), e);
                 }
             }
         });
+
+
+        //protected void onCreate(Bundle savedInstanceState) {
+        //  super.onCreateView(savedInstanceState);
+        //  setContentView(R.layout.fragment_setting);
+
 
         auth = FirebaseAuth.getInstance();
         user = auth.getCurrentUser();
@@ -73,6 +95,40 @@ public class SettingFragment extends Fragment {
         PD.setMessage("Loading...");
         PD.setCancelable(true);
         PD.setCanceledOnTouchOutside(false);
+
+
+        //   btnSignOut = (Button) getActivity().findViewById(R.id.sign_out_button);
+
+        //    btnSignOut.setOnClickListener(new View.OnClickListener() {
+        //        @Override
+        //       public void onClick(View view) {
+        //           try {
+        //              auth.signOut();
+        //             Toast.makeText(getActivity(), "User Sign out!", Toast.LENGTH_LONG).show();
+        //            Intent intent = new Intent(getActivity(), LoginActivity.class);
+        //            startActivity(intent);
+        //        } catch (Exception e) {
+        //           Log.e(TAG, "onClick: Exception " + e.getMessage(), e);
+        //       }
+
+        //  auth.signOut();
+        //  FirebaseAuth.AuthStateListener authListener = new FirebaseAuth.AuthStateListener() {
+        //     @Override
+        //     public void onAuthStateChanged(@NonNull FirebaseAuth firebaseAuth) {
+        //        FirebaseUser user = firebaseAuth.getCurrentUser();
+        //        if ( user == null) {
+        //   startActivity(new Intent(MainActivity.this, LoginActivity.class));
+        //         finish();
+        //  finishAffinity();
+        //     }
+        //    }
+        //  };
+        //  auth.addAuthStateListener(authListener);
+        //  Intent intent = new Intent(MainActivity.this, LoginActivity.class);
+        //  startActivity(intent);
+        //   }
+        //  });
+        //getActivity().findViewById(R.id.change_password_button).setOnClickListener(new View.OnClickListener() {}
 
         getActivity().findViewById(R.id.change_password_button).setOnClickListener(new View.OnClickListener() {
             @Override
@@ -94,6 +150,7 @@ public class SettingFragment extends Fragment {
                 startActivity(new Intent(getActivity(), ForgetAndChangePasswordActivity.class).putExtra("Mode", 3));
             }
         });
+
         getActivity().findViewById(R.id.contact_us).setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
@@ -103,6 +160,7 @@ public class SettingFragment extends Fragment {
                 startActivity(intent);
             }
         });
+
 
     }
 

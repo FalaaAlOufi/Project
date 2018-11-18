@@ -39,7 +39,10 @@
                 android:layout_height="match_parent">
 
                 <TextView
-                    android:id="@+id/info_text1"
+
+                    android:id="@+id/tempdialog"
+
+
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
                     android:layout_marginBottom="8dp"
@@ -70,7 +73,7 @@
                     android:layout_height="wrap_content"
                     android:layout_alignParentBottom="true"
                     android:layout_centerHorizontal="true"
-                    android:layout_marginBottom="44dp"
+                    android:layout_marginBottom="37dp"
                     android:textColor="#000000"
                     android:textSize="@dimen/maxValue"
                     tools:layout_editor_absoluteX="44dp"
@@ -107,9 +110,9 @@
                     android:layout_height="wrap_content"
                     android:layout_alignParentBottom="true"
                     android:layout_centerHorizontal="true"
-                    android:layout_marginBottom="47dp"
+                    android:layout_marginBottom="37dp"
                     android:textColor="#000000"
-                    android:textSize="@dimen/fontSizeView"
+                    android:textSize="@dimen/maxValue"
                     android:visibility="visible"
                     tools:layout_editor_absoluteX="44dp"
                     tools:layout_editor_absoluteY="82dp" />
@@ -197,7 +200,7 @@
                     android:layout_height="wrap_content"
                     android:layout_alignParentBottom="true"
                     android:layout_centerHorizontal="true"
-                    android:layout_marginBottom="45dp"
+                    android:layout_marginBottom="38dp"
                     android:textColor="#000000"
                     android:textSize="@dimen/maxValue"
                     tools:layout_editor_absoluteX="44dp"
@@ -230,7 +233,9 @@
                 android:layout_height="match_parent">
 
                 <TextView
-                    android:id="@+id/info_text4"
+
+                    android:id="@+id/humiditydialog"
+
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
                     android:layout_margin="8dp"
@@ -259,7 +264,7 @@
                     android:layout_height="wrap_content"
                     android:layout_alignParentBottom="true"
                     android:layout_centerHorizontal="true"
-                    android:layout_marginBottom="43dp"
+                    android:layout_marginBottom="38dp"
                     android:textColor="#000000"
                     android:textSize="@dimen/maxValue"
                     tools:layout_editor_absoluteX="44dp"

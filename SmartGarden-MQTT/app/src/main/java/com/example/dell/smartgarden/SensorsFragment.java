@@ -46,7 +46,11 @@ public class SensorsFragment extends Fragment{
 
     private ProgressBar ProgressBarAirHum, ProgressBarAirTemp, ProgressBarLightInt, ProgressBarSoil;
     private TextView TextViewAirHum, TextViewSoil, TextViewAirTemp,  TextViewLightInt;
-    public TextView Lightpop, Soildialog;
+
+    public TextView Lightpop, Soildialog, Tempdialog ,Humidity;
+
+
+
     private Handler mHandler ;
 
     int messageInt;
@@ -95,9 +99,17 @@ public class SensorsFragment extends Fragment{
 
         SeekBarWater.refreshDrawableState();
 
+
+        Tempdialog= view.findViewById(R.id.tempdialog);
+
+
         Soildialog = view.findViewById(R.id.soildialog);
 
         Lightpop = view.findViewById(R.id.lightpop);
+
+
+        Humidity= view.findViewById(R.id.humiditydialog);
+
 
         Lightpop.setOnClickListener(new View.OnClickListener() {
             @Override
@@ -129,6 +141,40 @@ public class SensorsFragment extends Fragment{
                 dialog.show();
             }
         });
+
+
+        Tempdialog.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view)
+            {
+
+                final Dialog dialog = new Dialog(getActivity());
+                dialog.setContentView(R.layout.temp_dialog);
+                DisplayMetrics metrics = new DisplayMetrics(); //get metrics of screen
+                getActivity().getWindowManager().getDefaultDisplay().getMetrics(metrics);
+                int height = (int) (metrics.heightPixels*0.7); //set height to 90% of total
+                int width = (int) (metrics.widthPixels*1); //set width to 90% of total
+                dialog.getWindow().setLayout(width, height);
+                dialog.show();
+            }
+        });
+
+        Humidity.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view)
+            {
+
+                final Dialog dialog = new Dialog(getActivity());
+                dialog.setContentView(R.layout.humidity_dialog);
+                DisplayMetrics metrics = new DisplayMetrics(); //get metrics of screen
+                getActivity().getWindowManager().getDefaultDisplay().getMetrics(metrics);
+                int height = (int) (metrics.heightPixels*0.7); //set height to 90% of total
+                int width = (int) (metrics.widthPixels*1); //set width to 90% of total
+                dialog.getWindow().setLayout(width, height);
+                dialog.show();
+            }
+        });
+
 
 
 

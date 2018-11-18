@@ -18,6 +18,10 @@ import java.io.UnsupportedEncodingException;
 
 import static com.example.dell.smartgarden.Constants.MQTT_USERNAME;
 import static com.example.dell.smartgarden.Constants.MQTT_PASSWORD;
+import static com.example.dell.smartgarden.Constants.PUBLISH_TOPIC_LEFT_FAN;
+import static com.example.dell.smartgarden.Constants.PUBLISH_TOPIC_LIGHT;
+import static com.example.dell.smartgarden.Constants.PUBLISH_TOPIC_PUMP;
+import static com.example.dell.smartgarden.Constants.PUBLISH_TOPIC_RIGHT_FAN;
 import static com.example.dell.smartgarden.Constants.QOS;
 import static com.example.dell.smartgarden.Constants.SUBSCRIBE_TOPIC_HUMIDITY;
 import static com.example.dell.smartgarden.Constants.SUBSCRIBE_TOPIC_LIGHT_SENSOR;
@@ -115,6 +119,13 @@ public class PahoMqttClient {
             mqttAndroidClient.subscribe(SUBSCRIBE_TOPIC_SOILMOISTURE, QOS);
             mqttAndroidClient.subscribe(SUBSCRIBE_TOPIC_TEMPERTURE, QOS);
             mqttAndroidClient.subscribe(SUBSCRIBE_TOPIC_HUMIDITY, QOS);
+
+            mqttAndroidClient.subscribe(PUBLISH_TOPIC_LEFT_FAN, QOS);
+            mqttAndroidClient.subscribe(PUBLISH_TOPIC_RIGHT_FAN, QOS);
+            mqttAndroidClient.subscribe(PUBLISH_TOPIC_PUMP, QOS);
+            mqttAndroidClient.subscribe(PUBLISH_TOPIC_LIGHT, QOS);
+
+
             Log.d(TAG, "Subscribe Successfully");
         } catch (MqttException e) {
             e.printStackTrace();
