@@ -1,6 +1,6 @@
 <?xml version="1.0" encoding="utf-8"?>
 <resources>
-    <dimen name="fontSizeView">15sp</dimen>
+    <dimen name="fontSizeView">16sp</dimen>
 
     <dimen name="titleSizeView">18sp</dimen>
     <dimen name="imageW">260dp</dimen>

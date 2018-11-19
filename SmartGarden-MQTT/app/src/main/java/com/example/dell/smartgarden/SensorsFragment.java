@@ -43,29 +43,18 @@ public class SensorsFragment extends Fragment{
     public PahoMqttClient pahoMqttClient;
     private SeekBar SeekBarWater;
     private Handler seekBarHandler;
-
     private ProgressBar ProgressBarAirHum, ProgressBarAirTemp, ProgressBarLightInt, ProgressBarSoil;
     private TextView TextViewAirHum, TextViewSoil, TextViewAirTemp,  TextViewLightInt;
-
     public TextView Lightpop, Soildialog, Tempdialog ,Humidity;
-
-
-
     private Handler mHandler ;
-
     int messageInt;
     String value;
-
     PopupWindow popupwindow;
-
-
-
 
     private FirebaseUser user;
     private String uid;
 
     SharedPreferences.Editor editor;
-
     SharedPreferences test_name;
 
     @Override
@@ -73,43 +62,28 @@ public class SensorsFragment extends Fragment{
 
         view = inflater.inflate(R.layout.fragment_sensor, container, false);
 
-
         pahoMqttClient = new PahoMqttClient();
 
         seekBarHandler = new Handler(); // must be created in the same thread that created the SeekBar
         SeekBarWater =  view.findViewById(R.id.seekBarWater);
 
-
         mHandler = new Handler();
         ProgressBarAirHum=  view.findViewById(R.id.progressBarAirHum);
         TextViewAirHum =  view.findViewById(R.id.textViewAirHum);
-
         ProgressBarSoil=  view.findViewById(R.id.progressBarSoil);
         TextViewSoil =  view.findViewById(R.id.textViewSoil);
-
         ProgressBarAirTemp=  view.findViewById(R.id.progressBarAirTemp);
         TextViewAirTemp =  view.findViewById(R.id.textViewAirTemp);
-
         ProgressBarLightInt= view.findViewById(R.id.progressBarLightInt);
         TextViewLightInt =  view.findViewById(R.id.textViewLightInt);
-
-
 
         SeekBarWater.setMax(100);
 
         SeekBarWater.refreshDrawableState();
-
-
         Tempdialog= view.findViewById(R.id.tempdialog);
-
-
         Soildialog = view.findViewById(R.id.soildialog);
-
         Lightpop = view.findViewById(R.id.lightpop);
-
-
         Humidity= view.findViewById(R.id.humiditydialog);
-
 
         Lightpop.setOnClickListener(new View.OnClickListener() {
             @Override
@@ -141,7 +115,6 @@ public class SensorsFragment extends Fragment{
                 dialog.show();
             }
         });
-
 
         Tempdialog.setOnClickListener(new View.OnClickListener() {
             @Override
@@ -175,11 +148,6 @@ public class SensorsFragment extends Fragment{
             }
         });
 
-
-
-
-
-
         test_name = this.getActivity().getSharedPreferences("NAME", 0);
         editor = test_name.edit();
 
@@ -187,7 +155,6 @@ public class SensorsFragment extends Fragment{
 
         TextViewAirHum.setText(test_name.getString("humText", ""));
         ProgressBarAirHum.setProgress(test_name.getInt("humProgress",0));
-
 
         TextViewSoil.setText(test_name.getString("soilText", ""));
         ProgressBarSoil.setProgress(test_name.getInt("soilProgress",0));
@@ -210,20 +177,12 @@ public class SensorsFragment extends Fragment{
         uid = user.getUid();
 
         client = pahoMqttClient.getMqttClient(getActivity().getApplicationContext(), Constants.MQTT_BROKER_URL, uid);
-
         client.setTraceEnabled(true);
-
-
 
         pahoMqttClient.mqttAndroidClient.setCallback(new MqttCallback() {
 
-
-
-
             @Override
             public void connectionLost(Throwable cause) {
-
-
 
             }
 

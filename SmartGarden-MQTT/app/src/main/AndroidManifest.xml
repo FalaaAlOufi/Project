@@ -27,6 +27,8 @@
             android:parentActivityName=".LoginActivity" />
         <activity android:name=".RegisterActivity"
             android:parentActivityName=".LoginActivity" />
+        <activity android:name=".about_us"
+            android:parentActivityName=".LoginActivity" />
         <activity android:name=".MainActivity" />
 
         <service android:name="org.eclipse.paho.android.service.MqttService" />

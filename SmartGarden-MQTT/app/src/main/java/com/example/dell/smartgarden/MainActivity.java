@@ -52,13 +52,7 @@ public class MainActivity extends AppCompatActivity  implements BottomNavigation
 
         if (auth.getCurrentUser() == null) {
             startActivity(new Intent(MainActivity.this, LoginActivity.class));
-            //  finish();
         }
-
-        //Intent intent = new Intent(MainActivity.this, MqttMessageService.class);
-        //ContextCompat.startForegroundService(MainActivity.this, intent  );
-        //startService(intent);
-
 
         toolbar = findViewById(R.id.toolbar);
         loadFragment(new HomeFragment());
@@ -73,22 +67,7 @@ public class MainActivity extends AppCompatActivity  implements BottomNavigation
     @Override
     protected void onStart() {
         super.onStart();
-
-
-/*
-        pahoMqttClient = new PahoMqttClient();
-        client = pahoMqttClient.getMqttClient(getApplicationContext(), Constants.MQTT_BROKER_URL, Constants.CLIENT_ID);
-        client.setTraceEnabled(true);
-
-
-
-        Intent intent = new Intent(MainActivity.this, MqttMessageService.class);
-        ContextCompat.startForegroundService(MainActivity.this, intent  );
-        startService(intent);
-*/
-
     }
-
 
     @Override
 
@@ -122,14 +101,6 @@ public class MainActivity extends AppCompatActivity  implements BottomNavigation
             FragmentTransaction xfrag = getSupportFragmentManager().beginTransaction();
             xfrag.replace(R.id.fragment_container, fragment).commit();
             xfrag.addToBackStack("HomeFragment");
-
-            // int homefrag = transaction.commit();
-            //  getSupportFragmentManager()
-            //        .beginTransaction()
-            //        .replace(R.id.fragment_container, fragment)
-            //       .commit();
-
-
             return true;
         }
         return false;

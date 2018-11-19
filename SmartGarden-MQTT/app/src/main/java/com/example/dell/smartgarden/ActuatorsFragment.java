@@ -71,18 +71,12 @@ public class ActuatorsFragment extends Fragment {
         uid = user.getUid();
 
         client = pahoMqttClient.getMqttClient(getActivity().getApplicationContext(), Constants.MQTT_BROKER_URL, uid);
-
         client.setTraceEnabled(true);
-
-
 
         pahoMqttClient.mqttAndroidClient.setCallback(new MqttCallback() {
 
-
             @Override
             public void connectionLost(Throwable cause) {
-
-
 
             }
             String m;
@@ -99,13 +93,7 @@ public class ActuatorsFragment extends Fragment {
                         Log.d(TAG, "massege recived");
 
                     }
-
                 }
-
-
-
-
-
             }
 
             @Override
@@ -113,13 +101,6 @@ public class ActuatorsFragment extends Fragment {
 
             }
         });
-
-
-
-
-
-
-
 
       //  m = new LoginActivity();
         WaterSwitch.setOnCheckedChangeListener(new CompoundButton.OnCheckedChangeListener() {
@@ -137,7 +118,6 @@ public class ActuatorsFragment extends Fragment {
                             Log.d(TAG, "massege published");
 
                         }
-
 
                     } catch (MqttException e) {
                         e.printStackTrace();
@@ -163,8 +143,6 @@ public class ActuatorsFragment extends Fragment {
                             Log.d(TAG, "massege not published");
                         }
 
-
-
                     } catch (MqttException e) {
                         e.printStackTrace();
                         Toast.makeText(getActivity().getApplicationContext(),
@@ -181,14 +159,12 @@ public class ActuatorsFragment extends Fragment {
                 editor.putBoolean("waterSwitch", isChecked);
                 editor.apply();
 
-
             }
         });
 
         LightSwitch.setOnCheckedChangeListener(new CompoundButton.OnCheckedChangeListener() {
             @Override
             public void onCheckedChanged(CompoundButton buttonView, boolean isChecked) {
-
 
                 if(isChecked){
 
@@ -250,8 +226,6 @@ public class ActuatorsFragment extends Fragment {
         LeftFanSwitch.setOnCheckedChangeListener(new CompoundButton.OnCheckedChangeListener() {
             @Override
             public void onCheckedChanged(CompoundButton buttonView, boolean isChecked) {
-
-
                 if(isChecked){
 
                     try {
