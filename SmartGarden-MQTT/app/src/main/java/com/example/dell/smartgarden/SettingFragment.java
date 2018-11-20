@@ -22,7 +22,7 @@ import org.eclipse.paho.android.service.MqttAndroidClient;
 
 public class SettingFragment extends Fragment {
 
-    Button btnSignOut;
+    Button btnSignOut,exitButton;
     FirebaseAuth auth;
     FirebaseUser user;
     ProgressDialog PD;
@@ -39,6 +39,7 @@ public class SettingFragment extends Fragment {
         super.onViewCreated(view, savedInstanceState);
 
         btnSignOut = (Button) getActivity().findViewById(R.id.sign_out_button);
+        exitButton= (Button) getActivity().findViewById(R.id.exit_button);
         btnSignOut.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
@@ -65,6 +66,13 @@ public class SettingFragment extends Fragment {
             }
         });
 
+        exitButton.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                getActivity().finish();
+            }
+        });
+
         auth = FirebaseAuth.getInstance();
         user = auth.getCurrentUser();
 
@@ -73,24 +81,10 @@ public class SettingFragment extends Fragment {
         PD.setCancelable(true);
         PD.setCanceledOnTouchOutside(false);
 
-        getActivity().findViewById(R.id.change_password_button).setOnClickListener(new View.OnClickListener() {
+        getActivity().findViewById(R.id.edit_account).setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
-                startActivity(new Intent(getActivity(), ForgetAndChangePasswordActivity.class).putExtra("Mode", 1));
-            }
-        });
-
-        getActivity().findViewById(R.id.change_email_button).setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View view) {
-                startActivity(new Intent(getActivity(), ForgetAndChangePasswordActivity.class).putExtra("Mode", 2));
-            }
-        });
-
-        getActivity().findViewById(R.id.delete_user_button).setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View view) {
-                startActivity(new Intent(getActivity(), ForgetAndChangePasswordActivity.class).putExtra("Mode", 3));
+                startActivity(new Intent(getActivity(), editAccountActivity.class));
             }
         });
 

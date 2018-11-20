@@ -39,7 +39,7 @@ public class LoginActivity extends AppCompatActivity {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_login);
         toolbar =  findViewById(R.id.toolbar);
-        toolbar.setTitle("Sign in");
+        toolbar.setTitle("login");
         setSupportActionBar(toolbar);
 
         PD = new ProgressDialog(this);

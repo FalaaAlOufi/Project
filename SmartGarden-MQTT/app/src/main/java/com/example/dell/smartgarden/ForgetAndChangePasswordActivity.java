@@ -66,9 +66,9 @@ public class ForgetAndChangePasswordActivity extends AppCompatActivity {
             edtMode.setHint("Enter New Email");
             labelMode.setHint("Enter New Email");
         } else {
-            toolbar.setTitle("Delete User");
+            toolbar.setTitle("Delete Account");
             setSupportActionBar(toolbar);
-            txtMode.setText("Delete User");
+            txtMode.setText("Delete Account");
             edtMode.setVisibility(View.GONE);
         }
 
